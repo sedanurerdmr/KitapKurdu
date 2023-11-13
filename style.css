@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+* {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --black: #1c2a39;
+  --gray: #5c6a79;
+  --purple: #4c3db2;
+  --transition: all 250ms ease-in-out;
+}
+
+.navbar{
+  height: 120px;
+  /*wight:80%; bu sekilde de sagdan bosluk birakabilirdik*/
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.title{
+  font-weight: bold;
+}
+
+.menu, .menu-icons{
+  list-style-type: none;  /*liste basindaki noktalarin gitmesi icin*/
+  display: flex;
+  flex-direction: row; /*soldan sağa dizilmesini saglar*/
+  font-size: 20px;
+  color: var(--gray);
+  cursor: pointer;
+}
+
+.menu .active{
+  color: var(--black);
+  font-weight: bold;
+}
+.menu li, .menu-icons li{
+  margin: 0 10px;
+}
+
+.menu-icons li{
+  color: var(--black);
+}
+.basket-icon{
+  position: relative;
+}
+
+.basket-count{
+  position: absolute;
+  right: -0.7rem;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: var(--black);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.basket-count:empty{
+  /* icerisinde het-rhangi bir sey yok ise gorunmez yap */
+  display: none;
+}
+
+.slider{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+}
+
+.slider img{
+  max-height: 500px;
+  
+}
+
+.store{
+  width: 80%;
+  margin-left:10% ;
+}
+
+.book-card{
+  height: 400px;
+}
+
+.book-card img{
+  height: 325px;
+}
+
+.fos{
+  font-family: "Open Sans", "sans-serif";
+}
+
+.gray{
+  color: var(--gray);
+}
+
+.black{
+  color: var(--black);
+}
+
+.fw-bold{
+  font-weight: bold;
+}
+
+.book-star-rate .bi-star-fill {
+  color: #f7f2f2;
+  font-size: 1.2rem;
+  margin-right: 3px;
+}
+
+.book-star-rate .bi-star-fill.active{
+  color: #f2c94c;
+}
+
+.book-description{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.old-price{
+  text-decoration: line-through;
+  color: #bdbdbd;
+}
+
+.btn-purple{
+  cursor: pointer;
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 5px 0;
+  transition:var(--transition)
+  
+}
+
+.btn-purple:hover{
+  background-color: var(--purple);
+  color: white;
+  
+}
+
+.filter-background{
+  position: absolute;
+  left: 0;
+  width: 400px;
+  height: 800px;
+  background-color: #efeef6;
+  z-index: -1;  /*arkaplana gelmesi icin*/
+}
+
+.filter{
+  position: absolute;
+  list-style-type: none;
+  display: flex;
+  min-height: 650px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.filter li{
+  color: var(--gray);
+  font-size: 1rem;
+  margin-bottom:2rem ;
+  cursor: pointer;
+}
+
+.filter li:hover{
+  color:var(--purple) ;
+}
+
+.filter li.active{
+  color: var(--purple);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.filter li.active::before{
+  content: "";
+  display:inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  position: absolute;
+  left: -5px;
+  margin-top: 12px;
+}
+
+
+.basket-modal{
+  position: fixed;
+  opacity: 0;  /*0 oldugu icin tamamne saydam 1 olsa gorunur olurdu*/
+  left: 0;
+  top: 0;
+  background-color:#5c6a7950 ;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: var(--transition)
+}
+
+.basket-modal.active{
+  opacity: 1;  /*yani aktif oldugunda gorunur olacak aktifligi de js ile sagladik*/
+  z-index: 999; /*aktif oldugunda en one cikar*/
+}
+
+.basket-items{
+  position: relative;
+  width: 450px;
+  background-color: white;
+  height: 100%;
+  float: right;
+  transition: var(--transition);
+}
+.basket-modal.active .basket-items{
+  width: 450px;
+}
+.basket-items .bi-x{
+  position: absolute;  /*öğelerin belge içinde nerede görüneceği, belge içindeki diğer öğelere göre değil, CSS ile belirtilen pozisyona bağlı olacaktır.*/
+  left: 0;
+  top: 0;
+  font-size: 3rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.basket-tittle{
+  color: #1c2a39;
+  margin-top: 5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.basket-list{
+  list-style-type: none;
+  padding: 0 20px;
+  margin-top: 3rem;
+  max-height: 400px;
+  overflow-y: auto;  /*scroll cikmasini saglariz*/
+}
+
+
+.basket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.basket-item-info{
+  width: 150px;
+}
+
+.basket-item-info .book-name{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.basket-item-info .book-price{
+  font-size: 16px;
+}
+
+.basket-item-info .book-remove{
+  cursor: pointer;
+  color: var(--gray);
+}
+
+.basket-item .book-count{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+.book-count .inc , .dec{
+  cursor: pointer;
+  color: var(--purple);
+}
+
+.book-count .dec{
+  margin-right: 5px;
+}
+
+.book-count .inc{
+  margin-left: 5px;
+}
+
+.basket-total{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 5%;
+  align-items: center;
+  width: inherit;
+
+}
+
+.basket-total button{
+  width: 250px;
+}
+
+.total-price:empty + .btn-purple{
+  display: none;
+}
+
+
+
+
+
+.page-tittle h2{
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  color: var(--purple);
+  font-size: 30px;
+  font-weight: 600;
+  padding: 56px 0;
+}
+
+.footer h2::after{
+  content:"" ;  /*content yazmayi unutma after calismaz. Uzerine gelindiginde gelecek yazı */
+  width: 30px;
+  height: 3px;
+  background-color: var(--purple);
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+  
+}
+
+.footer{
+  background-color: #efeef6;
+}
+
+.content-item{
+  color: var(--gray);
+  text-align: center;
+  flex-basis: 55%;
+  line-height: 2; /*satir boslugu*/
+  font-size: 13px;
+  margin-bottom: 50px;
+}
+
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20rem;
+}
+
+.footer-social i{
+  color: #fff;
+  margin-bottom: 50px;
+  font-size: 25px;
+  padding: 0 40px;
+
+}
+
+
