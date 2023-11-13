@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEDANUR KİTABEVİ</title>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR START -->
+    <nav class="navbar">
+      <h2 class="title">Kitap Kurdu</h2>
+      <ul class="menu">
+        <li class="active">Kitaplar</li>
+        <li href="asd.html">Sesli Kitap</li>
+        <li>Hediyeler</li>
+        <li>Hakkımızda</li>
+      </ul>
+      <ul class="menu-icons">
+        <li><i class="bi bi-person"></i></li>
+        <li><i class="bi bi-search"></i></li>
+        <li class="basket-icon" onclick="toggleModel()">
+          <i class="bi bi-basket"></i>
+          <span class="basket-count"></span>
+        </li>
+      </ul>
+    </nav>
+    <!-- NAVBAR FINISH -->
+    <!-- SLIDER START -->
+    <div class="container-fluid">
+    <section class="slider">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/images/1.jpg" class="d-block w-100" alt="okumak ozgurluktur">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/images/2.jpg" class="d-block w-100" alt="2 nisan dunya cocuk kitabi gunu">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/images/3.jpg" class="d-block w-100" alt="indirim">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!-- SLIDER FINISH -->
+    <!-- STORE START -->
+    <section class="store my-5">
+      <div class="filter-background"></div>
+      <ul class="filter">
+        <li class="active">Tümü</li>
+        <li>Roman</li>
+        <li>Kişisel Gelişim</li>
+        <li>Fantastik</li>
+      </ul>
+      <div class="row book-list">
+      </div>
+    </section>
+    <div class="basket-modal">
+      <div class="basket-items">
+        <i class="bi bi-x" onclick="toggleModel()"></i>
+        <h2 class="basket-tittle">Ürünleriniz</h2>
+        <ul class="basket-list">
+          <li class="basket-item">Sepetinizde Ürün Bulunamadı</li>
+        </ul>
+        <div class="basket-total">
+          <span class="fw-bold mb-3 fs-4 total-price"></span>
+          <button class="btn-purple">ÖDEME</button>
+        </div>
+      </div>
+    </div>
+    <!-- STORE FINISH -->
+    <!-- FOOTER START -->
+    <footer id="footer">
+      <div class="footer">
+          <div class="footer-content">
+              <div class="page-tittle">
+                  <h2>HAKKIMIZDA</h2>
+              </div>
+              <div class="content-item">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum numquam id, aliquam illum a ut itaque possimus distinctio nesciunt suscipit ad minus tempora quibusdam necessitatibus!</p>
+              </div>
+              <nav class="footer-social">
+                  <ul>
+                      <li>05340677589</li>
+                      <li>ulukavak mah. barbaros cad. Kocaeli Merkez</li>
+                      <li>kitapyurdu@gmail.com</li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </footer>
+    <!-- FOOTOR FINISH -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script
+      type="text/javascript"
+      src="assets/bootstrap/js/bootstrap.min.js"
+    ></script>
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script src="./assets/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
